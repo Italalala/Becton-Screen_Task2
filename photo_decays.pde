@@ -1,6 +1,9 @@
 PImage pic1;
 PImage pic2;
 PImage display;
+PImage lightning;
+PImage rain;
+PImage tornado;
 int randomnum;
 int counter = 0;
 int [] pixelList;
@@ -45,6 +48,11 @@ void setup(){
   pic2.loadPixels();
   display = loadImage("Cola,SC_PreFlood.jpg");
   display.loadPixels();
+  
+  lightning = loadImage("lightning.jpg");
+  tornado = loadImage("tornado.jpg");
+  rain = loadImage("rain.jpg");
+  
   mode=0;
   x=0;
   textSize(50);
@@ -57,7 +65,7 @@ void draw(){
  for(i=0; i<panelsRatios.length; i++){
    fill(lerpColor(ggreen, rred, colorRatios[(i+counter)%colorRatios.length]));
    //for testing use commented out rect statement, to see the rectangles
-   //rect(panelsRatios[i][0]*width, panelsRatios[i][1]*height, 100, 100);
+   rect(panelsRatios[i][0]*width, panelsRatios[i][1]*height, 50, 50);
    rect(panelsRatios[i][0]*width, panelsRatios[i][1]*height, panelsRatios[i][2]*width, panelsRatios[i][3]*height);
  }
   
@@ -75,7 +83,7 @@ void draw(){
   
  //In cafe -- wall
  if(counter>25){
-    mode = int(random(3));
+    mode = int(random(4));
     iterations ++;
     counter=0;
   }
@@ -126,7 +134,32 @@ void draw(){
       }
     }
     break;
+    
+    case 3:
+    int chance = pick(1,2,3);
+    switch (chance){
+      case 1:
+        blend(lightning, 0, 0, display.width, display.height,
+        int(0.66041666*width),int(0.0394444*height), int((1-0.66041666)*width),height,
+        int(random(14)));
+        delay(500);
+        break;
+      case 2:
+      blend(tornado, 0, 0, display.width, display.height,
+        int(0.66041666*width),int(0.0394444*height), int((1-0.66041666)*width),height,
+        int(random(14)));
+        delay(500);
+        break;
+      case 3:
+      blend(rain, 0, 0, display.width, display.height,
+        int(0.66041666*width),int(0.0394444*height), int((1-0.66041666)*width),height,
+        int(random(14)));
+        delay(500);
+        break;
     }
+    }
+    
+
 counter++;
 display.updatePixels();
 }
