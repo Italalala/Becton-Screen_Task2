@@ -16,4 +16,5 @@ those futures, despite the seeming chaos of the environmental changes themselves
 On the walls outside the primary display, across a series of disjointed panel displays, I programmed a looping sweep from green to 
 red, like an alarm going off, a symbolic system ubiquitous in its simplicity.
 
-The project is run on a Raspberry Pi 3B+ and is set to start on boot.
+The project is run on a Raspberry Pi 3B+ and is set to start on boot. The jpg files in this repo must be loaded into the project file of
+the Processing project before running it.
