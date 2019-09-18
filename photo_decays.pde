@@ -64,9 +64,8 @@ void draw(){
  //Outside Panels
  for(i=0; i<panelsRatios.length; i++){
    fill(lerpColor(ggreen, rred, colorRatios[(i+counter)%colorRatios.length]));
-   //for testing use commented out rect statement, to see the rectangles
    rect(panelsRatios[i][0]*width, panelsRatios[i][1]*height, 50, 50);
-   rect(panelsRatios[i][0]*width, panelsRatios[i][1]*height, panelsRatios[i][2]*width, panelsRatios[i][3]*height);
+   //rect(panelsRatios[i][0]*width, panelsRatios[i][1]*height, panelsRatios[i][2]*width, panelsRatios[i][3]*height);
  }
   
  //In cafe -- ceiling
